@@ -1,4 +1,4 @@
 pagecalc
 ========
 
-Simple library for paging calculations
+Simple javascript library for paging calculations.

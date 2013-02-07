@@ -25,14 +25,22 @@
             lower = ((page - 1)*limit),
             upper = (page*limit);
         
-        if(upper>max || lower<0) {
+        if(upper>max) {
+            upper = max;
+        }
+        
+        if(lower<0) {
             return -1;
         } else {
             for(var i = lower; i < upper; i++) {
                 _page.push(i + 1);
             }
             
-            return _page;
+            if(_page.length === 0) {
+                return -1;
+            } else {
+                return _page;
+            }
         }
     };
     

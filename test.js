@@ -26,12 +26,12 @@ vows.describe('PageCalc').addBatch({
             assert.equal(topic, -1);
         }
     },
-    'when we use a page size above max of 300': {
+    'when we use a page size 11 with a max of 10': {
         topic: function () {
-            return PageCalc(1, 301, 300);
+            return PageCalc(1, 11, 10);
         },
         'we get -1': function(topic) {
-            assert.equal(topic, -1);
+            assert.equal(topic.length, 10);
         }
     },
     'when we use page number 2 with a limit of 300 and a max of 300': {
@@ -91,6 +91,19 @@ vows.describe('PageCalc').addBatch({
                 8, 
                 9, 
                 10
+            ]);
+        }
+    },
+    'when we use page number 2 with a limit of 5 and a max of 9': {
+        topic: function () {
+            return PageCalc(2, 5, 9);
+        },
+        'we get an array with the numbers 6-9': function(topic) {
+            assert.deepEqual(topic, [
+                6, 
+                7, 
+                8, 
+                9
             ]);
         }
     }
